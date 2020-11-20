@@ -1,12 +1,13 @@
 //const Constraint=Matter.Constraint;
 
 class Chain{
-    constructor(bodyA,bodyB){
+    constructor(bodyA,bodyB, pointB){
         var options={
             bodyA:bodyA,
             bodyB:bodyB,
-            stiffness:0.04,
-            length:10
+            pointB:pointB,
+            stiffness:1.0,
+            length:300
 
         }
         this.constraint=Constraint.create(options);
@@ -14,8 +15,9 @@ class Chain{
     }
     display(){
         var pointA=this.constraint.bodyA.position;
-        var pointB=this.constraint.bodyB.position;
+        var pointBx=this.constraint.bodyB.position.x+this.constraint.pointB.x;
+        var pointBy=this.constraint.bodyB.position.y+this.constraint.pointB.y;
         strokeWeight(4);
-        line(pointA.x,pointA.y,pointB.x,pointB.y);
+        line(pointA.x,pointA.y,pointBx,pointBy);
     }
 }

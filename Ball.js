@@ -5,7 +5,7 @@ class Ball {
             friction: 0.5,
             density: 1.2
         }
-        this.image = loadImage("paper.png");
+       // this.image = loadImage("paper.png");
         this.body = Bodies.circle(x, y, radius, options);
         World.add(world, this.body);
         this.radius = radius;
@@ -15,8 +15,9 @@ class Ball {
         var pos = this.body.position;
         var angle = this.body.angle;
         push();
-        rotate(angle);
+        
         translate(pos.x, pos.y);
+        rotate(angle);
         fill(255);
         stroke("green");
         ellipseMode(RADIUS);
